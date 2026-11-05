@@ -4,6 +4,8 @@
 
 I'm a CSE student focused on software development, currently in the Labmentix internship programme and actively exploring software engineer / full-stack developer roles.
 
+🌐 **Live problems site:** [abhiproblems.dpdns.org/problems-site](https://abhiproblems.dpdns.org/problems-site/) — all 42 problems live to view and copy.
+
 ## What I'm working on
 - Software development and full-stack projects
 - Hackathons and hands-on tech learning
@@ -18,9 +20,11 @@ I'm a CSE student focused on software development, currently in the Labmentix in
 
 ## DSA / Coding Problems
 See the [`problems/`](./problems) folder — a starter practice set with solutions:
-- Two Sum
-- Reverse a String
-- Palindrome Check
+- Two Sum, Reverse a String, Palindrome Check (Python)
+- 24 C programs for AKTU BTech first year (13 basics + 11 advanced) — basics, loops, arrays, strings, pointers, structures, and file handling (in `problems/c/`)
+- 15 C++ programs — basics, OOP (classes, inheritance, polymorphism) and data structures with STL (in `problems/cpp/`)
+
+View them live: [abhiproblems.dpdns.org/problems-site](https://abhiproblems.dpdns.org/problems-site/)
 
 More problems will be added as I practice.
 
