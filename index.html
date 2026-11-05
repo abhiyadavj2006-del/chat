@@ -215,7 +215,7 @@
     <div class="modal">
       <button class="close" data-close>✕</button>
       <h3>⚙️ Settings & Persona</h3>
-      <div class="field-group"><label>API Base URL</label><input id="serverUrl" type="text" placeholder="http://localhost:3000" /><div class="hint">Your Hackathon Rivals server.</div></div>
+      <div class="field-group"><label>API Base URL</label><input id="serverUrl" type="text" placeholder="https://rival-ai-mentor.vercel.app" /><div class="hint">Your Hackathon Rivals server.</div></div>
       <div class="field-group"><label>Endpoint path</label><input id="endpointPath" type="text" value="/api/ai-chat/ai" /></div>
       <div class="field-group"><label>System prompt / persona</label><textarea id="systemPrompt" placeholder="e.g. You are the Rival AI Mentor. Reply in friendly Hinglish..."></textarea><div class="hint">Sent as the first history turn (role: system) for context.</div></div>
       <div class="field-group"><label>History turns <span class="range-val" id="histVal">6</span></label><input id="historyLen" type="range" min="0" max="20" value="6" /></div>
@@ -252,10 +252,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>
     "use strict";
-    const DEFAULTS={serverUrl:"http://localhost:3000",endpointPath:"/api/ai-chat/ai",historyLen:6,systemPrompt:""};
+    const DEFAULTS={serverUrl:"https://rival-ai-mentor.vercel.app",endpointPath:"/api/ai-chat/ai",historyLen:6,systemPrompt:""};
     const LS=localStorage;
     const cfg={
-      serverUrl:LS.getItem("rival_serverUrl")||DEFAULTS.serverUrl,
+      serverUrl:((v)=>v&&v!=="http://localhost:3000"?v:DEFAULTS.serverUrl)(LS.getItem("rival_serverUrl")),
       endpointPath:LS.getItem("rival_endpointPath")||DEFAULTS.endpointPath,
       historyLen:parseInt(LS.getItem("rival_historyLen")||DEFAULTS.historyLen,10),
       systemPrompt:LS.getItem("rival_systemPrompt")||DEFAULTS.systemPrompt,
