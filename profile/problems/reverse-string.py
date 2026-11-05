@@ -1,0 +1,7 @@
+# Reverse a String
+
+def reverse_string(s):
+    return s[::-1]
+
+if __name__ == "__main__":
+    print(reverse_string("Abhi"))  # ihbA
