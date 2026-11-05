@@ -1,7 +1,7 @@
 // Vercel serverless function: POST /api/ai-chat/ai
 // Powers the Rival AI Mentor page (chat repo index.html), which sends
 // { message, history: [{ role, text }] } and expects { reply } back.
-// Uses the Groq free tier (llama-3.3-70b-versatile) via GROQ_API_KEY.
+// Uses the Groq free tier (openai/gpt-oss-120b) via GROQ_API_KEY.
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
 const MODEL = 'openai/gpt-oss-120b';
 const DEFAULT_SYSTEM =

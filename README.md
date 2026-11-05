@@ -1,9 +1,9 @@
 # Rival AI Mentor — ChatGPT-style Chatbot
 
-A polished, ChatGPT-like chat interface that talks to your **Hackathon Rivals API**
-AI chat endpoint (the same one used by the "AI Chat (Rival AI Mentor)" request in Postman).
+A polished, ChatGPT-like chat interface that talks to its own **/api/ai-chat/ai** endpoint
+The app is deployed by the Vercel project "chat" at https://chat-abhi-f4ad.vercel.app, and the endpoint runs on Groq (model `openai/gpt-oss-120b`) using a `GROQ_API_KEY` environment variable.
 
-It's a **single HTML file** — no build step, no npm install.
+The frontend is a **single HTML file** — no build step, no npm install — plus a Vercel serverless function in `api/ai-chat/ai.js` that proxies chat requests to Groq.
 
 ## ✨ Features
 **Chat experience**
@@ -34,7 +34,7 @@ It's a **single HTML file** — no build step, no npm install.
 - Live **connection status** dot + 🔌 Test button
 
 ## 🚀 Run it
-No install needed, but serve it over HTTP (voice/clipboard need a real origin):
+The live deployment is https://chat-abhi-f4ad.vercel.app (Vercel project "chat"). To run it locally, no install is needed, but serve it over HTTP (voice/clipboard need a real origin):
 
 ```bash
 cd chatbot
@@ -47,7 +47,7 @@ Open **http://localhost:5500**
 
 ## 🔌 Connect your API
 Click the model name (top bar) or **⚙️ Settings & persona** and set:
-- **API Base URL** — where your server runs (e.g. `http://localhost:3000`)
+- **API Base URL** — defaults to `https://chat-abhi-f4ad.vercel.app`; change it only if you run your own server
 - **Endpoint path** — defaults to `/api/ai-chat/ai`
 - Optionally a **system prompt** to shape the AI's personality
 
@@ -55,9 +55,9 @@ The app sends:
 ```json
 { "message": "your text", "history": [ { "role": "user|assistant|system", "text": "..." } ] }
 ```
-and reads the **`reply`** string field from the JSON response — matching your Postman request contract.
+and reads the **`reply`** string field from the JSON response — matching the `/api/ai-chat/ai` contract.
 
 ## 📝 Notes
-- Your server must be running with `GROQ_API_KEY` configured.
-- If you hit a CORS error, allow the app's origin on your server, or serve both from the same origin.
+- The Vercel deployment requires `GROQ_API_KEY` set as an environment variable in the Vercel project "chat".
+- The frontend and the API are served from the same Vercel deployment, so no separate server or CORS setup is needed.
 - Voice input & TTS depend on the browser (Chrome/Edge recommended).
