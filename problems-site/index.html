@@ -1043,13 +1043,20 @@ int main() {
 }
 </code></pre></details>
     </article>
-    </main>
+    <p id="no-results" hidden>No problems match your search.</p>
+</main>
 <script>
 function filterProblems(){
-  const q=document.getElementById('q').value.toLowerCase();
-  document.querySelectorAll('.card').forEach(c=>{
-    c.style.display = c.dataset.search.toLowerCase().includes(q) ? '' : 'none';
-  });
+    const words=document.getElementById('q').value.toLowerCase().replaceAll('-',' ').split(' ').filter(Boolean);
+    let visible=0;
+    document.querySelectorAll('.card').forEach(c=>{
+        const haystack=c.dataset.search.toLowerCase().replaceAll('-',' ');
+        const match=words.every(w=>haystack.includes(w));
+        c.style.display=match?'':'none';
+        if(match)visible++;
+    });
+    const noResults=document.getElementById('no-results');
+    if(noResults)noResults.hidden=visible!==0;
 }
 </script>
 </body></html>
