@@ -3,7 +3,7 @@
 // { message, history: [{ role, text }] } and expects { reply } back.
 // Uses the Groq free tier (llama-3.3-70b-versatile) via GROQ_API_KEY.
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
-const MODEL = 'llama-3.3-70b-versatile';
+const MODEL = 'openai/gpt-oss-120b';
 const DEFAULT_SYSTEM =
   'You are Rival AI Mentor, a friendly and helpful mentor for hackathon students. Answer clearly and practically. Reply in the same language the user writes in (English or Hinglish).';
 
