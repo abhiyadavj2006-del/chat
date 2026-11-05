@@ -1,7 +1,6 @@
 # Hi, I'm Abhi Yadav 👋
 
 **BTech 2nd Year — Computer Science & Engineering**
-Goel Institute of Technology & Management
 
 I'm a CSE student focused on software development, currently in the Labmentix internship programme and actively exploring software engineer / full-stack developer roles.
 
