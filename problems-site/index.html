@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abhi Yadav — Programming Problems</title>
+<style>
+body{font-family:system-ui,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px;line-height:1.5}
+header{margin-bottom:24px} input{width:100%;padding:10px;font-size:16px;margin:12px 0}
+.card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0}
+.tag{background:#eee;border-radius:20px;padding:2px 10px;font-size:12px}
+pre{background:#111;color:#eee;padding:12px;overflow:auto;border-radius:8px}
+code{word-break:break-all}
+</style></head><body>
+<header><h1>Programming Problems — Abhi Yadav</h1>
+<p>BTech 2nd Year CSE • C (AKTU First Year + Advanced) and Python DSA problems, all in one live page. Search below, open any problem to see its full code.</p>
+<p>Total problems: 27 • C: 24 • Python: 3</p>
+<input id="q" placeholder="Search problems, e.g. factorial, linked list, two sum..." oninput="filterProblems()">
+</header>
+<main id="list">
+    <article class="card" data-search="01-hello-and-sum C 01-hello-and-sum.c">
+      <h3>1. 01-hello-and-sum</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>01-hello-and-sum.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Basics: Hello World and sum of two numbers
+#include &lt;stdio.h&gt;
+int main() {
+    int a, b;
+    printf(&quot;Hello, World!\n&quot;);
+    printf(&quot;Enter two numbers: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
+    printf(&quot;Sum = %d\n&quot;, a + b);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="02-even-odd-largest C 02-even-odd-largest.c">
+      <h3>2. 02-even-odd-largest</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>02-even-odd-largest.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Conditional branching: even/odd and largest of three
+#include &lt;stdio.h&gt;
+int main() {
+    int a, b, c, largest;
+    printf(&quot;Enter three numbers: &quot;);
+    scanf(&quot;%d %d %d&quot;, &amp;a, &amp;b, &amp;c);
+    printf(&quot;%d is %s\n&quot;, a, (a % 2 == 0) ? &quot;even&quot; : &quot;odd&quot;);
+    largest = a;
+    if (b &gt; largest) largest = b;
+    if (c &gt; largest) largest = c;
+    printf(&quot;Largest = %d\n&quot;, largest);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="03-factorial C 03-factorial.c">
+      <h3>3. 03-factorial</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>03-factorial.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Loops: factorial
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i;
+    long long fact = 1;
+    printf(&quot;Enter a number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    for (i = 1; i &lt;= n; i++) fact *= i;
+    printf(&quot;Factorial of %d = %lld\n&quot;, n, fact);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="04-fibonacci C 04-fibonacci.c">
+      <h3>4. 04-fibonacci</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>04-fibonacci.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Loops: Fibonacci series
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i, t1 = 0, t2 = 1, next;
+    printf(&quot;Enter number of terms: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    for (i = 0; i &lt; n; i++) {
+        printf(&quot;%d &quot;, t1);
+        next = t1 + t2;
+        t1 = t2;
+        t2 = next;
+    }
+    printf(&quot;\n&quot;);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="05-prime-check C 05-prime-check.c">
+      <h3>5. 05-prime-check</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>05-prime-check.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Loops and conditions: prime check
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i, isPrime = 1;
+    printf(&quot;Enter a number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    if (n &lt;= 1) isPrime = 0;
+    for (i = 2; i * i &lt;= n; i++) {
+        if (n % i == 0) { isPrime = 0; break; }
+    }
+    printf(&quot;%d is %s\n&quot;, n, isPrime ? &quot;prime&quot; : &quot;not prime&quot;);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="06-palindrome-number C 06-palindrome-number.c">
+      <h3>6. 06-palindrome-number</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>06-palindrome-number.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Loops: palindrome number
+#include &lt;stdio.h&gt;
+int main() {
+    int n, rev = 0, rem, original;
+    printf(&quot;Enter a number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    original = n;
+    while (n &gt; 0) {
+        rem = n % 10;
+        rev = rev * 10 + rem;
+        n /= 10;
+    }
+    printf(&quot;%d is %s\n&quot;, original, (original == rev) ? &quot;a palindrome&quot; : &quot;not a palindrome&quot;);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="07-reverse-sum-digits C 07-reverse-sum-digits.c">
+      <h3>7. 07-reverse-sum-digits</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>07-reverse-sum-digits.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Loops: reverse number and sum of digits
+#include &lt;stdio.h&gt;
+int main() {
+    int n, rev = 0, sum = 0, rem;
+    printf(&quot;Enter a number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    while (n &gt; 0) {
+        rem = n % 10;
+        rev = rev * 10 + rem;
+        sum += rem;
+        n /= 10;
+    }
+    printf(&quot;Reversed = %d, Sum of digits = %d\n&quot;, rev, sum);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="08-array-largest-smallest-average C 08-array-largest-smallest-average.c">
+      <h3>8. 08-array-largest-smallest-average</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>08-array-largest-smallest-average.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Arrays: largest, smallest and average
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i, arr[100], largest, smallest, sum = 0;
+    printf(&quot;Enter number of elements: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    printf(&quot;Enter %d elements: &quot;, n);
+    for (i = 0; i &lt; n; i++) scanf(&quot;%d&quot;, &amp;arr[i]);
+    largest = smallest = arr[0];
+    for (i = 0; i &lt; n; i++) {
+        if (arr[i] &gt; largest) largest = arr[i];
+        if (arr[i] &lt; smallest) smallest = arr[i];
+        sum += arr[i];
+    }
+    printf(&quot;Largest = %d, Smallest = %d, Average = %.2f\n&quot;, largest, smallest, (float)sum / n);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="09-bubble-sort-linear-search C 09-bubble-sort-linear-search.c">
+      <h3>9. 09-bubble-sort-linear-search</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>09-bubble-sort-linear-search.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Arrays: bubble sort and linear search
+#include &lt;stdio.h&gt;
+int main() {
+    int n, i, j, temp, key, found = -1, arr[100];
+    printf(&quot;Enter number of elements: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    printf(&quot;Enter %d elements: &quot;, n);
+    for (i = 0; i &lt; n; i++) scanf(&quot;%d&quot;, &amp;arr[i]);
+    for (i = 0; i &lt; n - 1; i++)
+        for (j = 0; j &lt; n - i - 1; j++)
+            if (arr[j] &gt; arr[j + 1]) { temp = arr[j]; arr[j] = arr[j + 1]; arr[j + 1] = temp; }
+    printf(&quot;Sorted: &quot;);
+    for (i = 0; i &lt; n; i++) printf(&quot;%d &quot;, arr[i]);
+    printf(&quot;\nEnter element to search: &quot;);
+    scanf(&quot;%d&quot;, &amp;key);
+    for (i = 0; i &lt; n; i++) if (arr[i] == key) { found = i; break; }
+    if (found != -1) printf(&quot;Found at index %d\n&quot;, found);
+    else printf(&quot;Not found\n&quot;);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="10-string-reverse-vowel-count C 10-string-reverse-vowel-count.c">
+      <h3>10. 10-string-reverse-vowel-count</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>10-string-reverse-vowel-count.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Strings: reverse and vowel count
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt;
+int main() {
+    char str[200];
+    int i, len, vowels = 0;
+    printf(&quot;Enter a string: &quot;);
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, &quot;\n&quot;)] = &#x27;\0&#x27;;
+    len = strlen(str);
+    printf(&quot;Reversed: &quot;);
+    for (i = len - 1; i &gt;= 0; i--) printf(&quot;%c&quot;, str[i]);
+    printf(&quot;\n&quot;);
+    for (i = 0; i &lt; len; i++) {
+        char ch = tolower((unsigned char)str[i]);
+        if (ch == &#x27;a&#x27; || ch == &#x27;e&#x27; || ch == &#x27;i&#x27; || ch == &#x27;o&#x27; || ch == &#x27;u&#x27;) vowels++;
+    }
+    printf(&quot;Vowel count = %d\n&quot;, vowels);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="11-swap-using-pointers C 11-swap-using-pointers.c">
+      <h3>11. 11-swap-using-pointers</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>11-swap-using-pointers.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Pointers and functions: swap using pointers
+#include &lt;stdio.h&gt;
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main() {
+    int x, y;
+    printf(&quot;Enter two numbers: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;x, &amp;y);
+    swap(&amp;x, &amp;y);
+    printf(&quot;After swap: x = %d, y = %d\n&quot;, x, y);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="12-student-structure C 12-student-structure.c">
+      <h3>12. 12-student-structure</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>12-student-structure.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - Structures: student record
+#include &lt;stdio.h&gt;
+struct Student {
+    int roll;
+    char name[50];
+    float marks;
+};
+int main() {
+    struct Student s;
+    printf(&quot;Enter roll, name and marks: &quot;);
+    scanf(&quot;%d %49s %f&quot;, &amp;s.roll, s.name, &amp;s.marks);
+    printf(&quot;Roll: %d, Name: %s, Marks: %.2f\n&quot;, s.roll, s.name, s.marks);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="13-file-write-read C 13-file-write-read.c">
+      <h3>13. 13-file-write-read</h3>
+      <p><span class="tag">C</span> <span class="tag">First Year</span> <code>13-file-write-read.c</code></p>
+      <details><summary>View code</summary><pre><code>// AKTU First Year - File handling: write and read a file
+#include &lt;stdio.h&gt;
+int main() {
+    FILE *fp;
+    char text[200];
+    fp = fopen(&quot;student.txt&quot;, &quot;w&quot;);
+    if (fp == NULL) { printf(&quot;Cannot open file\n&quot;); return 1; }
+    printf(&quot;Enter a line to write to file: &quot;);
+    fgets(text, sizeof(text), stdin);
+    fputs(text, fp);
+    fclose(fp);
+    fp = fopen(&quot;student.txt&quot;, &quot;r&quot;);
+    if (fp == NULL) { printf(&quot;Cannot open file\n&quot;); return 1; }
+    printf(&quot;File content:\n&quot;);
+    while (fgets(text, sizeof(text), fp) != NULL) printf(&quot;%s&quot;, text);
+    fclose(fp);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="14-factorial-recursion C 14-factorial-recursion.c">
+      <h3>14. 14-factorial-recursion</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>14-factorial-recursion.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - Recursion: factorial using recursion
+#include &lt;stdio.h&gt;
+long long factorial(int n) {
+    if (n &lt;= 1) return 1;
+    return n * factorial(n - 1);
+}
+int main() {
+    int n;
+    printf(&quot;Enter a number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    printf(&quot;Factorial of %d = %lld\n&quot;, n, factorial(n));
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="15-fibonacci-recursion C 15-fibonacci-recursion.c">
+      <h3>15. 15-fibonacci-recursion</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>15-fibonacci-recursion.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - Recursion: nth Fibonacci number using recursion
+#include &lt;stdio.h&gt;
+int fib(int n) {
+    if (n &lt;= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+int main() {
+    int n, i;
+    printf(&quot;Enter number of terms: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    for (i = 0; i &lt; n; i++) printf(&quot;%d &quot;, fib(i));
+    printf(&quot;\n&quot;);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="16-gcd-recursion C 16-gcd-recursion.c">
+      <h3>16. 16-gcd-recursion</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>16-gcd-recursion.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - Recursion: GCD using Euclid&#x27;s algorithm
+#include &lt;stdio.h&gt;
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
+int main() {
+    int a, b;
+    printf(&quot;Enter two numbers: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
+    printf(&quot;GCD = %d\n&quot;, gcd(a, b));
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="17-tower-of-hanoi C 17-tower-of-hanoi.c">
+      <h3>17. 17-tower-of-hanoi</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>17-tower-of-hanoi.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - Recursion: Tower of Hanoi
+#include &lt;stdio.h&gt;
+void hanoi(int n, char from, char to, char aux) {
+    if (n == 1) {
+        printf(&quot;Move disk 1 from %c to %c\n&quot;, from, to);
+        return;
+    }
+    hanoi(n - 1, from, aux, to);
+    printf(&quot;Move disk %d from %c to %c\n&quot;, n, from, to);
+    hanoi(n - 1, aux, to, from);
+}
+int main() {
+    int n;
+    printf(&quot;Enter number of disks: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    hanoi(n, &#x27;A&#x27;, &#x27;C&#x27;, &#x27;B&#x27;);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="18-dynamic-array-malloc C 18-dynamic-array-malloc.c">
+      <h3>18. 18-dynamic-array-malloc</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>18-dynamic-array-malloc.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - Dynamic memory: array using malloc and free
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main() {
+    int n, i, sum = 0, *arr;
+    printf(&quot;Enter number of elements: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    arr = (int *)malloc(n * sizeof(int));
+    if (arr == NULL) { printf(&quot;Memory allocation failed\n&quot;); return 1; }
+    printf(&quot;Enter %d elements: &quot;, n);
+    for (i = 0; i &lt; n; i++) { scanf(&quot;%d&quot;, &amp;arr[i]); sum += arr[i]; }
+    printf(&quot;Sum = %d, Average = %.2f\n&quot;, sum, (float)sum / n);
+    free(arr);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="19-matrix-multiplication C 19-matrix-multiplication.c">
+      <h3>19. 19-matrix-multiplication</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>19-matrix-multiplication.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - 2D arrays: matrix multiplication
+#include &lt;stdio.h&gt;
+int main() {
+    int r1, c1, r2, c2, i, j, k;
+    int a[10][10], b[10][10], result[10][10];
+    printf(&quot;Enter rows and columns of first matrix: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;r1, &amp;c1);
+    printf(&quot;Enter rows and columns of second matrix: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;r2, &amp;c2);
+    if (c1 != r2) { printf(&quot;Cannot multiply: columns of first != rows of second\n&quot;); return 1; }
+    printf(&quot;Enter first matrix:\n&quot;);
+    for (i = 0; i &lt; r1; i++) for (j = 0; j &lt; c1; j++) scanf(&quot;%d&quot;, &amp;a[i][j]);
+    printf(&quot;Enter second matrix:\n&quot;);
+    for (i = 0; i &lt; r2; i++) for (j = 0; j &lt; c2; j++) scanf(&quot;%d&quot;, &amp;b[i][j]);
+    for (i = 0; i &lt; r1; i++)
+        for (j = 0; j &lt; c2; j++) {
+            result[i][j] = 0;
+            for (k = 0; k &lt; c1; k++) result[i][j] += a[i][k] * b[k][j];
+        }
+    printf(&quot;Result:\n&quot;);
+    for (i = 0; i &lt; r1; i++) {
+        for (j = 0; j &lt; c2; j++) printf(&quot;%d &quot;, result[i][j]);
+        printf(&quot;\n&quot;);
+    }
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="20-linked-list C 20-linked-list.c">
+      <h3>20. 20-linked-list</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>20-linked-list.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - Linked list: insert at end and display
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node {
+    int data;
+    struct Node *next;
+};
+struct Node* insertEnd(struct Node *head, int value) {
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    newNode-&gt;data = value;
+    newNode-&gt;next = NULL;
+    if (head == NULL) return newNode;
+    struct Node *temp = head;
+    while (temp-&gt;next != NULL) temp = temp-&gt;next;
+    temp-&gt;next = newNode;
+    return head;
+}
+void display(struct Node *head) {
+    struct Node *temp = head;
+    while (temp != NULL) {
+        printf(&quot;%d -&gt; &quot;, temp-&gt;data);
+        temp = temp-&gt;next;
+    }
+    printf(&quot;NULL\n&quot;);
+}
+int main() {
+    struct Node *head = NULL;
+    int n, i, value;
+    printf(&quot;Enter number of nodes: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    for (i = 0; i &lt; n; i++) {
+        printf(&quot;Enter value %d: &quot;, i + 1);
+        scanf(&quot;%d&quot;, &amp;value);
+        head = insertEnd(head, value);
+    }
+    printf(&quot;Linked list: &quot;);
+    display(head);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="21-stack-using-array C 21-stack-using-array.c">
+      <h3>21. 21-stack-using-array</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>21-stack-using-array.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - Stack using array
+#include &lt;stdio.h&gt;
+#define MAX 100
+int stack[MAX], top = -1;
+void push(int value) {
+    if (top == MAX - 1) { printf(&quot;Stack overflow\n&quot;); return; }
+    stack[++top] = value;
+}
+int pop() {
+    if (top == -1) { printf(&quot;Stack underflow\n&quot;); return -1; }
+    return stack[top--];
+}
+void display() {
+    int i;
+    if (top == -1) { printf(&quot;Stack is empty\n&quot;); return; }
+    for (i = top; i &gt;= 0; i--) printf(&quot;%d &quot;, stack[i]);
+    printf(&quot;\n&quot;);
+}
+int main() {
+    int choice, value;
+    while (1) {
+        printf(&quot;\n1. Push  2. Pop  3. Display  4. Exit\nChoice: &quot;);
+        scanf(&quot;%d&quot;, &amp;choice);
+        if (choice == 1) { printf(&quot;Enter value: &quot;); scanf(&quot;%d&quot;, &amp;value); push(value); }
+        else if (choice == 2) printf(&quot;Popped: %d\n&quot;, pop());
+        else if (choice == 3) display();
+        else break;
+    }
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="22-queue-using-array C 22-queue-using-array.c">
+      <h3>22. 22-queue-using-array</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>22-queue-using-array.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - Queue using array
+#include &lt;stdio.h&gt;
+#define MAX 100
+int queue[MAX], front = -1, rear = -1;
+void enqueue(int value) {
+    if (rear == MAX - 1) { printf(&quot;Queue overflow\n&quot;); return; }
+    if (front == -1) front = 0;
+    queue[++rear] = value;
+}
+int dequeue() {
+    if (front == -1 || front &gt; rear) { printf(&quot;Queue underflow\n&quot;); return -1; }
+    return queue[front++];
+}
+void display() {
+    int i;
+    if (front == -1 || front &gt; rear) { printf(&quot;Queue is empty\n&quot;); return; }
+    for (i = front; i &lt;= rear; i++) printf(&quot;%d &quot;, queue[i]);
+    printf(&quot;\n&quot;);
+}
+int main() {
+    int choice, value;
+    while (1) {
+        printf(&quot;\n1. Enqueue  2. Dequeue  3. Display  4. Exit\nChoice: &quot;);
+        scanf(&quot;%d&quot;, &amp;choice);
+        if (choice == 1) { printf(&quot;Enter value: &quot;); scanf(&quot;%d&quot;, &amp;value); enqueue(value); }
+        else if (choice == 2) printf(&quot;Dequeued: %d\n&quot;, dequeue());
+        else if (choice == 3) display();
+        else break;
+    }
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="23-file-copy-count C 23-file-copy-count.c">
+      <h3>23. 23-file-copy-count</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>23-file-copy-count.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - File handling: copy a file and count lines, words, characters
+#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+int main() {
+    FILE *src, *dst;
+    char ch;
+    int lines = 0, words = 0, chars = 0, inWord = 0;
+    src = fopen(&quot;input.txt&quot;, &quot;r&quot;);
+    if (src == NULL) { printf(&quot;input.txt not found. Create it first.\n&quot;); return 1; }
+    dst = fopen(&quot;output.txt&quot;, &quot;w&quot;);
+    while ((ch = fgetc(src)) != EOF) {
+        fputc(ch, dst);
+        chars++;
+        if (ch == &#x27;\n&#x27;) lines++;
+        if (isspace((unsigned char)ch)) inWord = 0;
+        else if (!inWord) { inWord = 1; words++; }
+    }
+    fclose(src);
+    fclose(dst);
+    printf(&quot;Copied to output.txt. Lines = %d, Words = %d, Characters = %d\n&quot;, lines, words, chars);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="24-student-array-structure C 24-student-array-structure.c">
+      <h3>24. 24-student-array-structure</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>24-student-array-structure.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - Structures: array of structures, find topper
+#include &lt;stdio.h&gt;
+struct Student {
+    int roll;
+    char name[50];
+    float marks;
+};
+int main() {
+    int n, i, topper = 0;
+    struct Student students[100];
+    printf(&quot;Enter number of students: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    for (i = 0; i &lt; n; i++) {
+        printf(&quot;Student %d - roll, name, marks: &quot;, i + 1);
+        scanf(&quot;%d %49s %f&quot;, &amp;students[i].roll, students[i].name, &amp;students[i].marks);
+        if (students[i].marks &gt; students[topper].marks) topper = i;
+    }
+    printf(&quot;Topper: %s (Roll %d) with %.2f marks\n&quot;, students[topper].name, students[topper].roll, students[topper].marks);
+    return 0;
+}
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="palindrome-check Python palindrome-check.py">
+      <h3>25. palindrome-check</h3>
+      <p><span class="tag">Python</span> <span class="tag">DSA</span> <code>palindrome-check.py</code></p>
+      <details><summary>View code</summary><pre><code># Palindrome Check
+
+def is_palindrome(s):
+    s = &quot;&quot;.join(ch.lower() for ch in s if ch.isalnum())
+    return s == s[::-1]
+
+if __name__ == &quot;__main__&quot;:
+    print(is_palindrome(&quot;madam&quot;))  # True
+    print(is_palindrome(&quot;hello&quot;))  # False
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="reverse-string Python reverse-string.py">
+      <h3>26. reverse-string</h3>
+      <p><span class="tag">Python</span> <span class="tag">DSA</span> <code>reverse-string.py</code></p>
+      <details><summary>View code</summary><pre><code># Reverse a String
+
+def reverse_string(s):
+    return s[::-1]
+
+if __name__ == &quot;__main__&quot;:
+    print(reverse_string(&quot;Abhi&quot;))  # ihbA
+</code></pre></details>
+    </article>
+    
+    <article class="card" data-search="two-sum Python two-sum.py">
+      <h3>27. two-sum</h3>
+      <p><span class="tag">Python</span> <span class="tag">DSA</span> <code>two-sum.py</code></p>
+      <details><summary>View code</summary><pre><code># Two Sum
+# Given an array and a target, return indices of two numbers that add up to target.
+
+def two_sum(nums, target):
+    seen = {}
+    for i, num in enumerate(nums):
+        if target - num in seen:
+            return [seen[target - num], i]
+        seen[num] = i
+    return []
+
+if __name__ == &quot;__main__&quot;:
+    print(two_sum([2, 7, 11, 15], 9))  # [0, 1]
+</code></pre></details>
+    </article>
+    </main>
+<script>
+function filterProblems(){
+  const q=document.getElementById('q').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display = c.dataset.search.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body></html>
