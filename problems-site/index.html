@@ -12,7 +12,7 @@ code{word-break:break-all}
 </style></head><body>
 <header><h1>Programming Problems — Abhi Yadav</h1>
 <p>BTech 2nd Year CSE • C (AKTU First Year + Advanced), C++ (OOP + Data Structures) and Python DSA problems, all in one live page. Search below, open any problem to see its full code.</p>
-<p>Total problems: 42 • C: 24 • C++: 15 • Python: 3</p>
+<p>Total problems: 45 • C: 25 • C++: 16 • Python: 4</p>
 <input id="q" placeholder="Search problems, e.g. factorial, linked list, two sum..." oninput="filterProblems()">
 </header>
 
@@ -610,6 +610,35 @@ int main() {
 }
 </code></pre></details>
     </article>
+        <article class="card" data-search="25-binary-search C 25-binary-search.c">
+      <h3>43. 25-binary-search</h3>
+      <p><span class="tag">C</span> <span class="tag">Advanced</span> <code>25-binary-search.c</code></p>
+      <details><summary>View code</summary><pre><code>// Advanced C - Searching: binary search on a sorted array (O(log n))
+#include &lt;stdio.h&gt;
+
+int binarySearch(int arr[], int n, int key) {
+    int low = 0, high = n - 1;
+    while (low &lt;= high) {
+        int mid = (low + high) / 2;
+        if (arr[mid] == key) return mid;
+        if (arr[mid] &lt; key) low = mid + 1;
+        else high = mid - 1;
+    }
+    return -1;
+}
+
+int main() {
+    int arr[] = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int key = 23;
+    int index = binarySearch(arr, n, key);
+    if (index != -1)
+        printf(&quot;Element %d found at index %d\n&quot;, key, index);
+    else
+        printf(&quot;Element %d not found\n&quot;, key);
+    return 0;
+}</code></pre></details>
+    </article>
         <article class="card" data-search="palindrome-check Python palindrome-check.py">
       <h3>25. palindrome-check</h3>
       <p><span class="tag">Python</span> <span class="tag">DSA</span> <code>palindrome-check.py</code></p>
@@ -653,6 +682,28 @@ def two_sum(nums, target):
 if __name__ == &quot;__main__&quot;:
     print(two_sum([2, 7, 11, 15], 9))  # [0, 1]
 </code></pre></details>
+    </article>
+        <article class="card" data-search="binary-search Python binary-search.py">
+      <h3>44. binary-search</h3>
+      <p><span class="tag">Python</span> <span class="tag">DSA</span> <code>binary-search.py</code></p>
+      <details><summary>View code</summary><pre><code># Binary Search
+# Find a target in a sorted array in O(log n) time.
+
+def binary_search(nums, target):
+    low, high = 0, len(nums) - 1
+    while low &lt;= high:
+        mid = (low + high) // 2
+        if nums[mid] == target:
+            return mid
+        if nums[mid] &lt; target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+if __name__ == &quot;__main__&quot;:
+    print(binary_search([2, 5, 8, 12, 16, 23, 38, 56, 72, 91], 23))  # 5
+    print(binary_search([2, 5, 8, 12, 16, 23, 38, 56, 72, 91], 100))  # -1</code></pre></details>
     </article>
         <article class="card" data-search="01-hello-and-sum C++ 01-hello-and-sum.cpp">
       <h3>28. 01-hello-and-sum</h3>
@@ -1042,6 +1093,49 @@ int main() {
     return 0;
 }
 </code></pre></details>
+    </article>
+        <article class="card" data-search="16-queue-using-class C++ 16-queue-using-class.cpp">
+      <h3>45. 16-queue-using-class</h3>
+      <p><span class="tag">C++</span> <span class="tag">OOP & DSA</span> <code>16-queue-using-class.cpp</code></p>
+      <details><summary>View code</summary><pre><code>// C++ Data Structures: queue implemented with a class (FIFO)
+#include &lt;iostream&gt;
+using namespace std;
+
+class Queue {
+    int arr[100], front, rear;
+public:
+    Queue() { front = -1; rear = -1; }
+    bool isEmpty() { return front == -1; }
+    bool isFull() { return rear == 99; }
+    void enqueue(int x) {
+        if (isFull()) { cout &lt;&lt; &quot;Queue Overflow&quot; &lt;&lt; endl; return; }
+        if (isEmpty()) front = 0;
+        arr[++rear] = x;
+    }
+    void dequeue() {
+        if (isEmpty()) { cout &lt;&lt; &quot;Queue Underflow&quot; &lt;&lt; endl; return; }
+        cout &lt;&lt; &quot;Dequeued: &quot; &lt;&lt; arr[front] &lt;&lt; endl;
+        if (front == rear) front = rear = -1;
+        else front++;
+    }
+    void display() {
+        if (isEmpty()) { cout &lt;&lt; &quot;Queue is empty&quot; &lt;&lt; endl; return; }
+        cout &lt;&lt; &quot;Queue: &quot;;
+        for (int i = front; i &lt;= rear; i++) cout &lt;&lt; arr[i] &lt;&lt; &quot; &quot;;
+        cout &lt;&lt; endl;
+    }
+};
+
+int main() {
+    Queue q;
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+    q.display();
+    q.dequeue();
+    q.display();
+    return 0;
+}</code></pre></details>
     </article>
     <p id="no-results" hidden>No problems match your search.</p>
 </main>
